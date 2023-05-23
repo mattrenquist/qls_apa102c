@@ -47,8 +47,8 @@ func (d *Device) SetLedColor(led_number, red, green, blue uint8) bool {
 // //Change the brightness of all LEDs, while keeping their current color
 // //brightness must be a value between 0-31
 // //To turn all LEDs off but remember their previous color, set brightness to 0
-func (d *Device) SetAllLedBrightness(brightness uint) bool {
-	d.bus.Tx(ADDRESS, []byte{WRITE_ALL_LED_BRIGHTNESS, byte(brightness)}, make([]byte, 1))
+func (d *Device) SetAllLedBrightness(brightness uint8) bool {
+	d.bus.Tx(ADDRESS, []byte{WRITE_ALL_LED_BRIGHTNESS, brightness}, make([]byte, 1))
 	return true
 }
 
