@@ -52,6 +52,12 @@ func (d *Device) SetAllLedBrightness(brightness uint8) bool {
 	return true
 }
 
+// set the brightness of a single LED
+func (d *Device) SetLedBrightness(led_number, brightness uint8) bool {
+	d.bus.Tx(ADDRESS, []byte{WRITE_SINGLE_LED_BRIGHTNESS, led_number, brightness}, make([]byte, 1))
+	return true
+}
+
 func (d *Device) AllLedOff() bool {
 	d.bus.Tx(ADDRESS, []byte{WRITE_ALL_LED_COLOR, 0, 0, 0}, make([]byte, 1))
 	return true
