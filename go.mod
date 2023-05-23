@@ -1,4 +1,4 @@
-module qls_apa102c
+module github.com/mattrenquist/qls_apa102c
 
 go 1.20
 
